@@ -23,7 +23,7 @@ import javax.validation.Valid;
 import lombok.extern.slf4j.Slf4j;
 
 /**
- * 用户相关
+ * 轮播图相关
  */
 @Controller
 @RequestMapping("/picture")

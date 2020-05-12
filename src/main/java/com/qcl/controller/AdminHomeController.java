@@ -54,8 +54,8 @@ public class AdminHomeController {
      * */
     @GetMapping("/homeList")
     public String homeList(ModelMap map) {
-        int year = TimeUtils.getCurrentYear();
-        int month = TimeUtils.getCurrentMonth();
+        int year = TimeUtils.getCurrentYear(); //获取年份
+        int month = TimeUtils.getCurrentMonth();  //获取月份
         List<TotalMoney> totalMoneyList = new ArrayList<>();
         for (int i = 1; i <= month; i++) {
             TotalMoney totalMoney = new TotalMoney();
@@ -131,6 +131,7 @@ public class AdminHomeController {
 
     //查询库存少于5的菜品，提醒管理员及时补充库存
     private List<Food> getFoodKuCunList() {
+        //jpa查询
         return foodRepository.findByFoodStockLessThan(5);
     }
 }
