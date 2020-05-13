@@ -17,7 +17,7 @@ import java.util.Date;
 public class FoodCircle {
     @Id
     @GeneratedValue
-    private int foodCircleId;
+    private int food_circle_id;
     private String openid;//微信中的openid
     private String name;//姓名
     private String avatarUrl;//头像

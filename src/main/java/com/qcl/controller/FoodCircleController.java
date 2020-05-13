@@ -22,12 +22,12 @@ public class FoodCircleController {
     public ResultVO<FoodCircle> detail(
                                        @RequestParam("content") String content,
                                        @RequestParam("openid") String openid,
-                                       @RequestParam("foodCircleId") int foodCircleId,
+                                       @RequestParam("food_circle_id") int food_circle_id,
                                        @RequestParam("name") String name,
                                        @RequestParam("imageUrl") String imageUrl,
                                        @RequestParam("avatarUrl") String avatarUrl
     ){
-        if (StringUtils.isEmpty(openid) || StringUtils.isEmpty(foodCircleId)){
+        if (StringUtils.isEmpty(openid) || StringUtils.isEmpty(food_circle_id)){
             throw new DianCanException(ResultEnum.PARAM_ERROR);
         }
         //提交美食圈
@@ -35,7 +35,7 @@ public class FoodCircleController {
         foodCircle.setOpenid(openid);
         foodCircle.setImageUrl(imageUrl);
         foodCircle.setAvatarUrl(avatarUrl);
-        foodCircle.setFoodCircleId(foodCircleId);
+        foodCircle.setFood_circle_id(food_circle_id);
         foodCircle.setContent(content);
         foodCircle.setName(name);
         FoodCircle save = repository.save(foodCircle);

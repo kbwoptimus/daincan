@@ -45,6 +45,7 @@ Page({
       url: '../change/change',
     })
   },
+  
   onShow(options) {
     var user = app.globalData.userInfo;
     if (user && user.nickName) {
