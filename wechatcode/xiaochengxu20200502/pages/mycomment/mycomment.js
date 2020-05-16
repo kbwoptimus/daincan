@@ -36,24 +36,24 @@ Page({
  },
  //获取所有评论列表
  getCommentList() {
-  let that = this;
-  //请求自己后台获取用户openid
-  wx.request({
-   url: app.globalData.baseUrl + '/commentList',
-   success: function(res) {
-    if (res && res.data && res.data.data && res.data.data.length > 0) {
-     let dataList = res.data.data;
-     console.log(dataList)
-     that.setData({
-      list: dataList
-     })
-    } else {
-     that.setData({
-      list: []
-     })
+    let that = this;
+    //请求自己后台获取用户openid
+    wx.request({
+    url: app.globalData.baseUrl + '/commentList',
+    success: function(res) {
+      if (res && res.data && res.data.data && res.data.data.length > 0) {
+      let dataList = res.data.data;
+      console.log(dataList)
+      that.setData({
+        list: dataList
+      })
+      } else {
+      that.setData({
+        list: []
+      })
+      }
     }
-   }
-  })
+    })
  },
 
  //获取我的所有评论列表

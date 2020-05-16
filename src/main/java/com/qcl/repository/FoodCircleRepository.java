@@ -8,4 +8,5 @@ import java.util.List;
 
 public interface FoodCircleRepository extends JpaRepository<FoodCircle,Integer> {
     List<FoodCircle> findAllByOpenid(String openid);
+//    List<FoodCircle> findByImageUrl(String image_url);
 }

@@ -20,14 +20,14 @@ public class FoodCircleController {
     //美食圈页面呈现
     @GetMapping("/foodcircle")
     public ResultVO<FoodCircle> detail(
-                                       @RequestParam("content") String content,
-                                       @RequestParam("openid") String openid,
-                                       @RequestParam("food_circle_id") int food_circle_id,
-                                       @RequestParam("name") String name,
-                                       @RequestParam("imageUrl") String imageUrl,
-                                       @RequestParam("avatarUrl") String avatarUrl
+                                        @RequestParam("openid") String openid,
+                                        @RequestParam("content") String content,
+                                       //@RequestParam("food_circle_id") int food_circle_id,
+                                         @RequestParam("name") String name,
+                                        @RequestParam("imageUrl") String imageUrl,
+                                         @RequestParam("avatarUrl") String avatarUrl
     ){
-        if (StringUtils.isEmpty(openid) || StringUtils.isEmpty(food_circle_id)){
+        if (StringUtils.isEmpty(openid) ){
             throw new DianCanException(ResultEnum.PARAM_ERROR);
         }
         //提交美食圈
@@ -35,7 +35,7 @@ public class FoodCircleController {
         foodCircle.setOpenid(openid);
         foodCircle.setImageUrl(imageUrl);
         foodCircle.setAvatarUrl(avatarUrl);
-        foodCircle.setFood_circle_id(food_circle_id);
+        //foodCircle.setFood_circle_id(food_circle_id);
         foodCircle.setContent(content);
         foodCircle.setName(name);
         FoodCircle save = repository.save(foodCircle);
@@ -46,6 +46,8 @@ public class FoodCircleController {
     @GetMapping("/seefoodcircle")
     public ResultVO<List<FoodCircle>> foodCircleList(){
         List<FoodCircle> all = repository.findAll();
+        System.out.println(all);
+
         return ApiUtil.success(all);
     }
 }
