@@ -7,7 +7,7 @@ import java.math.BigDecimal;
 import com.qcl.meiju.FoodStatusEnum;
 import lombok.Data;
 
-/**
+/*
  * 返回给小程序的菜品页
  */
 @Data
