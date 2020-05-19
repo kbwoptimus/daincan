@@ -9,7 +9,6 @@ import lombok.Data;
 
 /**
  * 返回给小程序的菜品页
- *
  */
 @Data
 public class FoodRes {
