@@ -1,6 +1,6 @@
 <html>
 <#include "../zujian/top.ftlh">
-<body style=" background: url(/diancan/img/bg.jpg)
+<body style=" background: url(/diancan/img/bg.png)
 no-repeat center center ; background-size: cover;">
 <div class="modal-dialog" style="margin-top: 10%;">
     <div class="modal-content">

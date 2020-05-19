@@ -7,7 +7,7 @@ spring:
     url: jdbc:mysql://localhost/diancan?characterEncoding=utf-8&useSSL=false&serverTimeZone=UTC
       &useOldAliasMetadataBehavior=true&allowPublicKeyRetrieval=true
     username: root
-    password: 123456
+    password: 802312
     hikari:
       connection-init-sql: set names utf8mb4
     tomcat:
