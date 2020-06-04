@@ -1,0 +1,10 @@
+<view class="container" >
+<!-- 标题部分 -->
+  <view class="wenzi">
+  <text class="title">{{detailList[index].title}}详情</text>
+  </view>
+      <!-- 详情图片 -->
+  <view class="image"    >
+    <image src="{{detailList[index].src}}" bindtap="previewImg"  class="img"  data-src='{{[detailList[index].src]}}' mode='widthFix'></image>
+  </view>
+</view>

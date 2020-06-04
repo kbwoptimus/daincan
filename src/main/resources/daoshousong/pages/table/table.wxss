@@ -28,8 +28,9 @@
     height: 100px;
     width: 100%;
     display: flex;
+    border-radius: 10px;
     align-items: center;
     justify-content: center;
-    background: green;
+    background: rgb(151, 228, 230);
     color: white;
   }
