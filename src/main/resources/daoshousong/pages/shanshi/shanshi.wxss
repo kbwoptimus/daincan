@@ -1,0 +1,29 @@
+.container{
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+}
+
+/* 文字部分 */
+.wenzi{
+  height: 50px;
+  width: 100%;
+  margin-top: 10px;
+  text-align: center;
+}
+.title{
+  font-size: 35px;
+}
+
+/* 图片部分 */
+.image{
+  height: 100%;
+  width: 100%;
+}
+
+.img{
+  margin-top: 50px;
+  height: 400px;
+  width: 100%;
+}
