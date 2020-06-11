@@ -1,0 +1,45 @@
+<!--pages/index/index.wxml-->
+<view class="container">
+<!-- 搜索 -->
+<input class="search" type="text" confirm-type="search" placeholder="请输入要搜索的内容"></input>
+ <!-- 轮播图 -->
+  <view class="banner">
+    <swiper autoplay="true" circular="true" interval="3000" indicator-dots="true"> 
+      <!-- <swiper-item>
+      <image src="../../image/banner1.jpg" mode="widthFix"></image>
+      </swiper-item>
+      <swiper-item>
+      <image src="../../image/banner2.jpg" mode="widthFix"></image>
+      </swiper-item>
+      <swiper-item>
+      <image src="../../image/banner3.jpg" mode="widthFix"></image>
+      </swiper-item>
+      <swiper-item>
+      <image src="../../image/banner4.jpg" mode="widthFix"></image>
+      </swiper-item> -->
+      <block wx:for="{{banner}}" wx:key="banner">
+      <swiper-item>
+        <image src='{{item.picUrl}}' mode="aspectFill" style="width:100%;height:100%;" />
+      </swiper-item>
+      </block>
+    </swiper>
+  </view>
+  <!-- 导航菜单 -->
+   <view class="nav">
+      <view class="menu"  bindtap="navtap" wx:for="{{navList}}" wx:key="index">
+        <image src="{{item.src}}"></image>
+         <text>{{item.name}}</text>
+      </view>
+   </view>
+</view>
+
+<!-- 商家列表 -->
+<text class="hot"> 精选店家 </text>
+<view class="wrap"> 
+<navigator url="../buy/buy?stid={{item.stid}}&stname={{item.stname}}&stimg={{item.stimg}}" wx:for="{{storeList}}" wx:key="index" class="product">
+    <image src="{{item.stimg}}" mode="widthFix"></image>
+    <view class="info">
+      <text class="name">{{item.stname}}</text>
+    </view>
+    </navigator>
+</view>

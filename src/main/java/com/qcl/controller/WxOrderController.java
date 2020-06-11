@@ -104,7 +104,6 @@ public class WxOrderController {
         List<WxOrderResponse> list = new ArrayList<>();
         list.clear();
 
-
         List<WxOrderResponse> listStats = wxOrder.findListStats(openid, orderStatus);
         listStats.forEach((orderBean) -> {
             WxOrderResponse one = wxOrder.findOne(orderBean.getOrderId());

@@ -1,0 +1,18 @@
+<!--pages/order/order.wxml-->
+<view class="container">
+
+  <view class="shanshi">
+  <text>营养膳食表</text>
+  </view>
+
+  <scroll-view scroll-y style="height: 700px;" >
+    <view class="zhengwen" wx:for="{{shanshilist}}"
+       wx:key="index">
+      <view class="title"  bindtap="toshanshi" data-index="{{index}}">
+          <text>{{item.title}}</text>
+      </view>
+    </view>
+  </scroll-view>
+
+
+</view>

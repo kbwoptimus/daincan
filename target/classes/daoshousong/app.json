@@ -1,0 +1,49 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/foodcircle/foodcircle",
+    "pages/table/table",
+    "pages/index0/index0",
+    "pages/change/change",
+    "pages/confirmOrder/confirmOrder",
+    "pages/mycomment/mycomment",
+    "pages/myOrder/myOrder",
+    "pages/me/me",
+    "pages/buy/buy"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#008842",
+    "navigationBarTitleText": "到手送",
+    "navigationBarTextStyle": "white"
+  },
+  "tabBar": {
+    "list": [
+      {
+        "iconPath": "image/home.png",
+        "selectedIconPath": "image/home_select.png",
+        "pagePath": "pages/index/index",
+        "text": "首页"
+      },
+      {
+        "pagePath": "pages/foodcircle/foodcircle",
+        "text": "美食圈",
+        "iconPath": "image/foodcircle.png",
+        "selectedIconPath": "image/foodcircle_select.png"
+      },
+      {
+        "pagePath": "pages/table/table",
+        "text": "营养膳食",
+        "iconPath": "image/community.png",
+        "selectedIconPath": "image/community_select.png"
+      },
+      {
+        "iconPath": "image/my.png",
+        "selectedIconPath": "image/my_select.png",
+        "pagePath": "pages/me/me",
+        "text": "我的"
+      }
+    ]
+  },
+  "sitemapLocation": "sitemap.json"
+}
