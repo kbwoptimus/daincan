@@ -1,7 +1,6 @@
 package com.qcl.duanyan;
 
 import com.qcl.global.GlobalConst;
-import com.qcl.meiju.ResultEnum;
 import com.qcl.yichang.DianCanAuthorizeException;
 import com.qcl.utils.CookieUtil;
 

@@ -213,7 +213,56 @@ public class WxOrderUtils {
 
         return orderDTO;
     }
+    //接单
+    @Transactional
+    public WxOrderResponse jiedan(WxOrderResponse orderDTO) {
+        //提示用户订单已经送达
+        if (orderDTO.getOrderStatus().equals(OrderStatusEnum.DELIVERED.getCode())) {
+            log.error("【接单】订单状态不正确, orderId={}, orderStatus={}", orderDTO.getOrderId(), orderDTO.getOrderStatus());
+            throw new DianCanException(ResultEnum.ORDER_DELIVERED);
+        }
+        //只有未接单的订单才能接单
+        if (!orderDTO.getOrderStatus().equals(OrderStatusEnum.WEIJIE.getCode())) {
+            log.error("【接单】订单状态不正确, orderId={}, orderStatus={}", orderDTO.getOrderId(), orderDTO.getOrderStatus());
+            throw new DianCanException(ResultEnum.ORDER_STATUS_ERROR);
+        }
 
+        //修改订单状态
+        orderDTO.setOrderStatus(OrderStatusEnum.YIJIE.getCode());
+        WxOrderRoot orderMaster = new WxOrderRoot();
+        BeanUtils.copyProperties(orderDTO, orderMaster);
+        WxOrderRoot updateResult = orderRootRepository.save(orderMaster);
+        if (updateResult == null) {
+            log.error("【接单】更新失败, orderMaster={}", orderMaster);
+            throw new DianCanException(ResultEnum.ORDER_UPDATE_FAIL);
+        }
+        return orderDTO;
+    }
+    //送达
+    @Transactional
+    public WxOrderResponse delivered(WxOrderResponse orderDTO) {
+        //提示用户订单未接
+        if (orderDTO.getOrderStatus().equals(OrderStatusEnum.WEIJIE.getCode())) {
+            log.error("【送达订单】订单状态不正确, orderId={}, orderStatus={}", orderDTO.getOrderId(), orderDTO.getOrderStatus());
+            throw new DianCanException(ResultEnum.ORDER_WEIJIE);
+        }
+        //只有已接订单才可以送达
+        if (!orderDTO.getOrderStatus().equals(OrderStatusEnum.YIJIE.getCode())) {
+            log.error("【送达订单】订单状态不正确, orderId={}, orderStatus={}", orderDTO.getOrderId(), orderDTO.getOrderStatus());
+            throw new DianCanException(ResultEnum.ORDER_STATUS_ERROR);
+        }
+
+        //修改订单状态
+        orderDTO.setOrderStatus(OrderStatusEnum.DELIVERED.getCode());
+        WxOrderRoot orderMaster = new WxOrderRoot();
+        BeanUtils.copyProperties(orderDTO, orderMaster);
+        WxOrderRoot updateResult = orderRootRepository.save(orderMaster);
+        if (updateResult == null) {
+            log.error("【送达订单】更新失败, orderMaster={}", orderMaster);
+            throw new DianCanException(ResultEnum.ORDER_UPDATE_FAIL);
+        }
+        return orderDTO;
+    }
     //完结订单
     @Transactional
     public WxOrderResponse finish(WxOrderResponse orderDTO) {

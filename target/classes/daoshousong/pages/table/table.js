@@ -37,6 +37,8 @@ Page({
 
   },
 
+    
+
   // 添加绑定事件,跳转详情页面
   toshanshi: function (e) {
     var list = JSON.stringify(this.data.shanshilist);        //获取餐品列表

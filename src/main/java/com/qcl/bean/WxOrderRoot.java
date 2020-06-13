@@ -1,10 +1,5 @@
 package com.qcl.bean;
 
-import com.qcl.meiju.OrderStatusEnum;
-
-import org.hibernate.annotations.DynamicInsert;
-import org.hibernate.annotations.DynamicUpdate;
-
 import java.math.BigDecimal;
 import java.util.Date;
 
@@ -13,6 +8,7 @@ import javax.persistence.EntityListeners;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
+import com.qcl.meiju.OrderStatusEnum;
 import lombok.Data;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedDate;

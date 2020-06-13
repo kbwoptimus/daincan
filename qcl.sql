@@ -15,7 +15,7 @@ create table `admin_info`
     `update_time` timestamp   not null default current_timestamp on update current_timestamp comment '修改时间',
     primary key (`admin_id`)
 ) comment '餐厅卖家信息表';
-# 创建一个默认管理员 账号密码都是2501902696，也是老师的微信，有任何问题可以加老师微信咨询
+#
 INSERT INTO admin_info
 VALUES (1, '编程小石头', '2501902696', '2501902696', 2, now(), now());
 

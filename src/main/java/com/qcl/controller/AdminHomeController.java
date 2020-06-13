@@ -1,35 +1,24 @@
 package com.qcl.controller;
 
-import com.qcl.api.ResultVO;
 import com.qcl.bean.Food;
 import com.qcl.bean.TotalMoney;
 import com.qcl.bean.WxOrderRoot;
 import com.qcl.meiju.OrderStatusEnum;
 import com.qcl.repository.FoodRepository;
 import com.qcl.repository.OrderRootRepository;
-import com.qcl.utils.ApiUtil;
 import com.qcl.utils.TimeUtils;
 import lombok.extern.slf4j.Slf4j;
-import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Sort;
 import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
 
-import javax.persistence.criteria.CriteriaBuilder;
-import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Predicate;
-import javax.persistence.criteria.Root;
 import java.math.BigDecimal;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
-import java.util.IntSummaryStatistics;
 import java.util.List;
 
 /*

@@ -45,6 +45,10 @@ public enum ResultEnum {
     LOGIN_FAIL(25, "登录失败, 登录信息不正确"),
 
     LOGOUT_SUCCESS(26, "登出成功"),
+
+    ORDER_WEIJIE(27, "订单还未接单，无法送达"),
+
+    ORDER_DELIVERED(28, "订单已送达，无需接单"),
     ;
 
     private Integer code;

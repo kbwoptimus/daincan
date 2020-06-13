@@ -34,10 +34,12 @@ Page({
       url: '../mycomment/mycomment?type=1',
     })
   },
-  //饭店电话
-  goToPhone() {
-    wx.makePhoneCall({
-      phoneNumber: '15611823564' //仅为示例，这个号码也是石头哥的微信号
+   //关于我们
+  aboutUs: function(){
+    wx.showModal({
+      title: '关于我们',
+      content: '本系统由到手送团队搭建，祝大家使用愉快！',
+      showCancel: false
     })
   },
   change() {
@@ -60,10 +62,10 @@ Page({
     var that = this;
     var user = app.globalData.userInfo;
     // if (user) {
-    //   // that.setData({
-    //   //  isShowUserName: true,
-    //   //  userInfo: user,
-    //   // })
+    //   that.setData({
+    //    isShowUserName: true,
+    //    userInfo: user,
+    //   })
     // } else {
     //   // 由于 getUserInfo 是网络请求，可能会在 Page.onLoad 之后才返回
     //   // 所以此处加入 callback 以防止这种情况

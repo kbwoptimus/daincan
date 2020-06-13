@@ -10,13 +10,13 @@
     <!-- 编号 -->
     <view class='seria'>
       <label class='seriac_name'>
-        订单编号:
-        <text>{{item.orderId}}</text>
-        
+        店家名:
+        <text>{{item.stname}}</text>
       </label>
       <!-- 订单状态 -->
       <label class='seriac_start'>
-        {{item.orderStatusStr}}</label>
+        {{item.orderStatusStr}}
+      </label>
     </view>
     <!-- 列表 -->
     <view class='list' wx:for="{{item.orderDetailList}}" wx:for-item="arr_item" wx:key="key">

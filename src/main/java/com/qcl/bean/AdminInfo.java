@@ -1,10 +1,7 @@
 package com.qcl.bean;
 
 import com.qcl.meiju.AdminStatusEnum;
-import com.qcl.meiju.OrderStatusEnum;
 import com.qcl.utils.EnumUtil;
-import org.hibernate.annotations.DynamicInsert;
-import org.hibernate.annotations.DynamicUpdate;
 
 import java.util.Date;
 

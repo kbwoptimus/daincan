@@ -104,6 +104,7 @@ public class WxOrderController {
         List<WxOrderResponse> list = new ArrayList<>();
         list.clear();
 
+
         List<WxOrderResponse> listStats = wxOrder.findListStats(openid, orderStatus);
         listStats.forEach((orderBean) -> {
             WxOrderResponse one = wxOrder.findOne(orderBean.getOrderId());
@@ -145,6 +146,40 @@ public class WxOrderController {
             throw new DianCanException(ResultEnum.ORDER_OWNER_ERROR);
         }
         wxOrder.cancel(orderDTO);
+        return ApiUtil.success();
+    }
+    //接单
+    @PostMapping("/jiedan")
+    public ResultVO jiedan(@RequestParam("openid") String openid,
+                           @RequestParam("orderId") int orderId) {
+        WxOrderResponse orderDTO = wxOrder.findOne(orderId);
+        if (orderDTO == null) {
+            log.error("【接单】查不到订单, orderId={}", orderId);
+            throw new DianCanException(ResultEnum.ORDER_NOT_EXIST);
+        }
+        //判断是否是自己的订单
+        if (!orderDTO.getBuyerOpenid().equalsIgnoreCase(openid)) {
+            log.error("【接单】订单的openid不一致. openid={}, orderDTO={}", openid, orderDTO);
+            throw new DianCanException(ResultEnum.ORDER_OWNER_ERROR);
+        }
+        wxOrder.jiedan(orderDTO);
+        return ApiUtil.success();
+    }
+    //送达
+    @PostMapping("/delivered")
+    public ResultVO delivered(@RequestParam("openid") String openid,
+                              @RequestParam("orderId") int orderId) {
+        WxOrderResponse orderDTO = wxOrder.findOne(orderId);
+        if (orderDTO == null) {
+            log.error("【送达】查不到订单, orderId={}", orderId);
+            throw new DianCanException(ResultEnum.ORDER_NOT_EXIST);
+        }
+        //判断是否是自己的订单
+        if (!orderDTO.getBuyerOpenid().equalsIgnoreCase(openid)) {
+            log.error("【送达】订单的openid不一致. openid={}, orderDTO={}", openid, orderDTO);
+            throw new DianCanException(ResultEnum.ORDER_OWNER_ERROR);
+        }
+        wxOrder.delivered(orderDTO);
         return ApiUtil.success();
     }
 

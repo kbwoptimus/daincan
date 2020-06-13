@@ -24,7 +24,7 @@
     <view class='right_arrow' />
   </view>
 </view>
-<view class='my_item' bindtap="goToPhone">
-  <text>饭店电话</text>
+<view class='my_item' bindtap="aboutUs">
+  <text>关于我们</text>
   <view class='right_arrow' />
 </view>
